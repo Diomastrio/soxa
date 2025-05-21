@@ -92,10 +92,12 @@ export default function CalendarioPage() {
             Consulta todos los partidos programados para la temporada actual
           </p>
         </div>
-        <div className="flex gap-3">
-          <Button variant="outline">Descargar Calendario</Button>
-          <Link href="/reservas">
-            <Button>Reservar Entradas</Button>
+        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <Button variant="outline" className="w-full sm:w-auto">
+            Descargar Calendario
+          </Button>
+          <Link href="/reservas" className="w-full sm:w-auto">
+            <Button className="w-full sm:w-auto">Reservar Entradas</Button>
           </Link>
         </div>
       </div>
@@ -104,7 +106,7 @@ export default function CalendarioPage() {
         {partidos.map((partido) => (
           <Card key={partido.id} className="overflow-hidden">
             <CardHeader className="pb-3">
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center">
                 <Badge
                   variant={
                     partido.liga === "Copa del Rey" ? "destructive" : "default"
@@ -114,44 +116,65 @@ export default function CalendarioPage() {
                 </Badge>
                 <p className="text-sm font-medium">{partido.fecha}</p>
               </div>
-              <div className="flex items-center justify-between mt-2">
+              {/* Team display section */}
+              <div className="flex flex-col items-center sm:flex-row sm:justify-between mt-2 gap-1 sm:gap-2">
+                {/* Local Team */}
                 <div className="flex items-center gap-2">
                   {partido.localLogo && (
                     <Image
                       src={partido.localLogo}
                       alt={`${partido.local} logo`}
-                      width={40}
-                      height={40}
+                      // Reduced size
+                      width={32}
+                      // Reduced size
+                      height={32}
                       className="rounded-full"
                     />
                   )}
-                  <CardTitle className="text-xl">{partido.local}</CardTitle>
+                  <CardTitle className="text-lg font-semibold">
+                    {partido.local}
+                  </CardTitle>{" "}
+                  {/* Adjusted size */}
                 </div>
-                <span className="text-xl font-semibold">vs</span>
-                <div className="flex items-center gap-2">
-                  <CardTitle className="text-xl">{partido.visitante}</CardTitle>
+                <span className="text-base font-semibold my-1 sm:my-0">vs</span>{" "}
+                {/* Adjusted size */}
+                {/* Visitor Team - sm:flex-row-reverse to keep logo on the right in horizontal layout */}
+                <div className="flex items-center gap-2 text-right sm:text-left sm:flex-row-reverse">
+                  <CardTitle className="text-lg font-semibold">
+                    {partido.visitante}
+                  </CardTitle>{" "}
+                  {/* Adjusted size */}
                   {partido.visitanteLogo && (
                     <Image
                       src={partido.visitanteLogo}
                       alt={`${partido.visitante} logo`}
-                      width={40}
-                      height={40}
+                      // Reduced size
+                      width={32}
+                      // Reduced size
+                      height={32}
                       className="rounded-full"
                     />
                   )}
                 </div>
               </div>
-              <CardDescription className="mt-1">
+              <CardDescription className="mt-2 text-center sm:text-left">
+                {" "}
+                {/* Adjusted margin and text alignment */}
                 {partido.hora} - {partido.estadio}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col items-start gap-2 sm:flex-row sm:justify-between sm:items-center">
                 <p className="text-sm text-muted-foreground">
                   Jornada {partido.id}
                 </p>
-                <Link href={`/reservas?partido=${partido.id}`}>
-                  <Button size="sm">Reservar</Button>
+                <Link
+                  href={`/reservas?partido=${partido.id}`}
+                  className="w-full sm:w-auto"
+                >
+                  <Button size="sm" className="w-full sm:w-auto">
+                    Reservar
+                  </Button>
                 </Link>
               </div>
             </CardContent>
