@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 export default function Header() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const routes = [
     { name: "Inicio", path: "/" },
@@ -16,12 +16,15 @@ export default function Header() {
     { name: "Reservas", path: "/reservas" },
     { name: "Resultados", path: "/resultados" },
     { name: "Información", path: "/informacion" },
-  ]
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
-        <Link href="/" className="font-bold text-2xl mr-6 flex items-center gap-2">
+      <div className="container flex h-16 items-center pl-3">
+        <Link
+          href="/"
+          className="font-bold text-2xl mr-6 flex items-center gap-2"
+        >
           <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
             FC
           </div>
@@ -36,7 +39,9 @@ export default function Header() {
                   href={route.path}
                   className={cn(
                     "text-sm font-medium transition-colors hover:text-primary",
-                    pathname === route.path ? "text-primary font-semibold" : "text-muted-foreground",
+                    pathname === route.path
+                      ? "text-primary font-semibold"
+                      : "text-muted-foreground"
                   )}
                 >
                   {route.name}
@@ -61,7 +66,10 @@ export default function Header() {
           </SheetTrigger>
           <SheetContent side="left">
             <div className="px-2 py-6 w-full">
-              <Link href="/" className="font-bold text-2xl mb-8 flex items-center gap-2">
+              <Link
+                href="/"
+                className="font-bold text-2xl mb-8 flex items-center gap-2"
+              >
                 <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
                   FC
                 </div>
@@ -75,7 +83,9 @@ export default function Header() {
                     href={route.path}
                     className={cn(
                       "text-sm font-medium transition-colors hover:text-primary flex items-center py-2",
-                      pathname === route.path ? "text-primary font-semibold" : "text-muted-foreground",
+                      pathname === route.path
+                        ? "text-primary font-semibold"
+                        : "text-muted-foreground"
                     )}
                   >
                     {route.name}
@@ -93,5 +103,5 @@ export default function Header() {
         </Sheet>
       </div>
     </header>
-  )
+  );
 }

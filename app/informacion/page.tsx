@@ -18,60 +18,53 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-const jugadores = [
+const desarrolladores = [
   {
-    nombre: "Jugador 1",
-    posicion: "Portero",
-    dorsal: 3,
+    nombre: "Desarrollador 1",
+    rol: "Frontend Developer",
     imagen: "/player1.jpg", // Ensure this path is correct
   },
   {
-    nombre: "Jugador 2",
-    posicion: "Defensa",
-    dorsal: 6,
+    nombre: "Desarrollador 2",
+    rol: "Backend Developer",
     imagen: "/player2.jpg", // Ensure this path is correct
   },
   {
-    nombre: "Jugador 3",
-    posicion: "Defensa",
-    dorsal: 9,
+    nombre: "Desarrollador 3",
+    rol: "UI/UX Designer",
     imagen: "/player3.jpg", // Ensure this path is correct
   },
   {
-    nombre: "Jugador 4",
-    posicion: "Centrocampista",
-    dorsal: 12,
+    nombre: "Desarrollador 4",
+    rol: "QA Engineer",
     imagen: "/player4.png", // Ensure this path is correct
   },
   {
-    nombre: "Jugador 5",
-    posicion: "Centrocampista",
-    dorsal: 15,
+    nombre: "Desarrollador 5",
+    rol: "DevOps Engineer",
     imagen: "/player5.jpg", // Ensure this path is correct
   },
   {
-    nombre: "Jugador 6",
-    posicion: "Delantero",
-    dorsal: 18,
+    nombre: "Desarrollador 6",
+    rol: "Product Manager",
     imagen: "/player6.jpg", // Ensure this path is correct
   },
-  // Add more players as needed
 ];
 
-const cuerpoTecnico = [
+const lideresTecnicos = [
   {
     nombre: "Carlos Sánchez",
-    rol: "Entrenador Principal",
+    rol: "CTO",
     imagen: "/player7.webp", // Replace with actual image if available
   },
   {
     nombre: "Javier López",
-    rol: "Asistente Técnico",
+    rol: "Lead Developer",
     imagen: "/player8.avif", // Replace with actual image if available
   },
   {
     nombre: "Marta Rodríguez",
-    rol: "Preparadora Física",
+    rol: "Project Manager",
     imagen: "/player9.avif", // Replace with actual image if available
   },
 ];
@@ -84,47 +77,44 @@ export default function InformacionPage() {
           Información General
         </h1>
         <p className="text-muted-foreground">
-          Todo lo que necesitas saber sobre nuestro club y estadio
+          Todo lo que necesitas saber sobre nuestra aplicación
         </p>
       </div>
 
-      <Tabs defaultValue="club" className="space-y-8">
-        <TabsList>
-          <TabsTrigger value="club">El Club</TabsTrigger>
-          <TabsTrigger value="estadio">Estadio</TabsTrigger>
-          <TabsTrigger value="equipo">Equipo</TabsTrigger>
+      <Tabs defaultValue="app" className="space-y-8">
+        <TabsList className="w-full sm:w-auto flex flex-wrap">
+          <TabsTrigger value="app">La Aplicación</TabsTrigger>
+          <TabsTrigger value="caracteristicas">Características</TabsTrigger>
+          <TabsTrigger value="equipo">Equipo de Desarrollo</TabsTrigger>
           <TabsTrigger value="contacto">Contacto</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="club" className="space-y-6">
+        <TabsContent value="app" className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h2 className="text-2xl font-bold mb-4">Historia del Club</h2>
+              <h2 className="text-2xl font-bold mb-4">Sobre la Aplicación</h2>
               <div className="prose dark:prose-invert">
                 <p>
-                  Fútbol Club fue fundado en 1923 por un grupo de entusiastas
-                  del fútbol con la visión de crear un equipo que representara
-                  los valores de nuestra ciudad. Desde entonces, el club ha
-                  crecido hasta convertirse en uno de los más importantes de la
-                  región.
+                  SOXA fue desarrollada en 2023 como una solución integral para
+                  gestión deportiva, enfocada en mejorar la experiencia de
+                  aficionados, jugadores y administradores de clubes deportivos.
                 </p>
                 <p>
-                  A lo largo de nuestra historia, hemos ganado numerosos
-                  títulos, incluyendo:
+                  Desde su lanzamiento, nuestra plataforma ha evolucionado para
+                  ofrecer:
                 </p>
                 <ul>
-                  <li>5 Ligas Nacionales (1956, 1968, 1992, 2004, 2018)</li>
-                  <li>
-                    7 Copas del Rey (1948, 1955, 1973, 1985, 1999, 2010, 2021)
-                  </li>
-                  <li>2 Supercopas (2004, 2018)</li>
-                  <li>1 Copa Internacional (1997)</li>
+                  <li>Gestión completa de calendarios de partidos y eventos</li>
+                  <li>Sistema de reserva de entradas y abonos</li>
+                  <li>Perfiles detallados de equipos y jugadores</li>
+                  <li>Estadísticas en tiempo real</li>
+                  <li>Integración con redes sociales</li>
                 </ul>
                 <p>
-                  Nuestro compromiso con el desarrollo de jóvenes talentos ha
-                  sido siempre una parte fundamental de nuestra identidad, con
-                  una academia que ha producido numerosos jugadores
-                  internacionales.
+                  Nuestro compromiso con la innovación tecnológica y la
+                  experiencia de usuario nos ha permitido crear una plataforma
+                  intuitiva y potente que se adapta a las necesidades de clubes
+                  de todos los tamaños.
                 </p>
               </div>
             </div>
@@ -132,39 +122,41 @@ export default function InformacionPage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Datos del Club</CardTitle>
+                  <CardTitle>Datos de la Aplicación</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Calendar className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="font-medium">Fundación</p>
-                      <p className="text-sm text-muted-foreground">1923</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Trophy className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="font-medium">Palmarés</p>
-                      <p className="text-sm text-muted-foreground">
-                        15 títulos oficiales
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="font-medium">Ciudad</p>
-                      <p className="text-sm text-muted-foreground">
-                        Barcelona, España
-                      </p>
+                      <p className="font-medium">Lanzamiento</p>
+                      <p className="text-sm text-muted-foreground">2023</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Users className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="font-medium">Socios</p>
-                      <p className="text-sm text-muted-foreground">25,000+</p>
+                      <p className="font-medium">Usuarios Activos</p>
+                      <p className="text-sm text-muted-foreground">
+                        +100,000 usuarios
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Trophy className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="font-medium">Reconocimientos</p>
+                      <p className="text-sm text-muted-foreground">
+                        Premio a la Mejor App Deportiva 2024
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Globe className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="font-medium">Disponibilidad</p>
+                      <p className="text-sm text-muted-foreground">
+                        Web, iOS y Android
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -172,9 +164,9 @@ export default function InformacionPage() {
 
               <div className="aspect-video relative rounded-lg overflow-hidden border">
                 <Image
-                  src="/toria.jpg"
-                  alt="Imagen histórica del club"
-                  className="object-cover"
+                  src="/App.png"
+                  alt="Captura de pantalla de la aplicación"
+                  className="fit-cover"
                   fill
                 />
               </div>
@@ -183,60 +175,64 @@ export default function InformacionPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Valores del Club</CardTitle>
+              <CardTitle>Valores de la Aplicación</CardTitle>
               <CardDescription>
-                Los principios que guían nuestro equipo
+                Los principios que guían nuestro desarrollo
               </CardDescription>
             </CardHeader>
             <CardContent className="grid sm:grid-cols-3 gap-6">
               <div className="space-y-2">
-                <h3 className="font-bold">Excelencia</h3>
+                <h3 className="font-bold">Innovación</h3>
                 <p className="text-sm text-muted-foreground">
-                  Buscamos la excelencia en todo lo que hacemos, desde el
-                  rendimiento en el campo hasta la gestión del club.
+                  Buscamos constantemente nuevas formas de mejorar la
+                  experiencia del usuario y ofrecer soluciones tecnológicas
+                  avanzadas.
                 </p>
               </div>
               <div className="space-y-2">
-                <h3 className="font-bold">Respeto</h3>
+                <h3 className="font-bold">Accesibilidad</h3>
                 <p className="text-sm text-muted-foreground">
-                  Promovemos el respeto hacia compañeros, rivales, aficionados y
-                  todas las personas vinculadas al fútbol.
+                  Nos esforzamos por hacer que nuestra plataforma sea accesible
+                  para todos, independientemente de sus habilidades técnicas o
+                  necesidades específicas.
                 </p>
               </div>
               <div className="space-y-2">
                 <h3 className="font-bold">Comunidad</h3>
                 <p className="text-sm text-muted-foreground">
-                  Estamos comprometidos con nuestra comunidad y trabajamos para
-                  tener un impacto positivo más allá del deporte.
+                  Construimos herramientas que fortalecen las comunidades
+                  deportivas y fomentan la participación activa de aficionados y
+                  deportistas.
                 </p>
               </div>
             </CardContent>
           </Card>
         </TabsContent>
 
-        <TabsContent value="estadio" className="space-y-6">
+        <TabsContent value="caracteristicas" className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h2 className="text-2xl font-bold mb-4">Estadio Principal</h2>
+              <h2 className="text-2xl font-bold mb-4">
+                Características Principales
+              </h2>
               <div className="prose dark:prose-invert">
                 <p>
-                  El Estadio Principal, inaugurado en 1945 y renovado
-                  completamente en 2015, es el hogar de Fútbol Club y uno de los
-                  recintos deportivos más emblemáticos del país.
+                  SOXA ofrece una suite completa de herramientas para la gestión
+                  deportiva, diseñada pensando en las necesidades de clubes,
+                  aficionados y jugadores.
                 </p>
-                <p>
-                  Con capacidad para 35,000 espectadores, nuestro estadio cuenta
-                  con modernas instalaciones que garantizan una experiencia
-                  inolvidable para los aficionados, incluyendo:
-                </p>
+                <p>Nuestras características destacadas incluyen:</p>
                 <ul>
-                  <li>Asientos cubiertos en todas las zonas</li>
-                  <li>Pantallas gigantes de última generación</li>
-                  <li>Sistema de sonido envolvente</li>
-                  <li>Múltiples puntos de restauración</li>
-                  <li>Tienda oficial del club</li>
-                  <li>Museo del club con trofeos y memorabilia histórica</li>
-                  <li>Zona VIP con palcos privados</li>
+                  <li>
+                    Calendario interactivo con sincronización multiplatforma
+                  </li>
+                  <li>Sistema de reservas con pago integrado</li>
+                  <li>Perfiles detallados para jugadores y equipos</li>
+                  <li>Estadísticas avanzadas y visualización de datos</li>
+                  <li>Notificaciones personalizables</li>
+                  <li>Panel de administración para gestores de clubes</li>
+                  <li>Integración con redes sociales</li>
+                  <li>Modo offline con sincronización posterior</li>
                 </ul>
               </div>
             </div>
@@ -244,64 +240,64 @@ export default function InformacionPage() {
             <div className="space-y-6">
               <div className="aspect-video relative rounded-lg overflow-hidden border">
                 <Image
-                  src="/est.jpg"
-                  alt="Estadio Principal"
-                  className="object-cover"
+                  src="/car.png"
+                  alt="Interfaz de la aplicación"
+                  className="fit-cover"
                   fill
                 />
               </div>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Datos del Estadio</CardTitle>
+                  <CardTitle>Especificaciones Técnicas</CardTitle>
                 </CardHeader>
                 <CardContent className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="font-medium">Capacidad</p>
+                    <p className="font-medium">Frontend</p>
                     <p className="text-sm text-muted-foreground">
-                      35,000 espectadores
+                      React, Next.js, Tailwind CSS
                     </p>
                   </div>
                   <div>
-                    <p className="font-medium">Inauguración</p>
+                    <p className="font-medium">Backend</p>
                     <p className="text-sm text-muted-foreground">
-                      1945 (Renovado en 2015)
+                      Node.js, Express, MongoDB
                     </p>
                   </div>
                   <div>
-                    <p className="font-medium">Dimensiones</p>
-                    <p className="text-sm text-muted-foreground">105m x 68m</p>
+                    <p className="font-medium">Mobile</p>
+                    <p className="text-sm text-muted-foreground">
+                      React Native, Flutter
+                    </p>
                   </div>
                   <div>
-                    <p className="font-medium">Ubicación</p>
-                    <p className="text-sm text-muted-foreground">
-                      Av. del Estadio, s/n, Barcelona
-                    </p>
+                    <p className="font-medium">Hosting</p>
+                    <p className="text-sm text-muted-foreground">AWS, Vercel</p>
                   </div>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Cómo Llegar</CardTitle>
+                  <CardTitle>Requisitos del Sistema</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="space-y-1">
-                    <p className="font-medium">Metro</p>
+                    <p className="font-medium">Web</p>
                     <p className="text-sm text-muted-foreground">
-                      Línea 3 - Estación &quot;Estadio&quot; (5 min a pie)
+                      Navegador moderno (Chrome, Firefox, Safari, Edge)
                     </p>
                   </div>
                   <div className="space-y-1">
-                    <p className="font-medium">Autobús</p>
+                    <p className="font-medium">iOS</p>
                     <p className="text-sm text-muted-foreground">
-                      Líneas 45, 67 y 102 (parada frente al estadio)
+                      iOS 13.0 o superior
                     </p>
                   </div>
                   <div className="space-y-1">
-                    <p className="font-medium">Aparcamiento</p>
+                    <p className="font-medium">Android</p>
                     <p className="text-sm text-muted-foreground">
-                      500 plazas disponibles (reserva recomendada)
+                      Android 7.0 o superior
                     </p>
                   </div>
                 </CardContent>
@@ -311,31 +307,31 @@ export default function InformacionPage() {
         </TabsContent>
 
         <TabsContent value="equipo" className="space-y-6">
-          <h2 className="text-2xl font-bold mb-4">Nuestro Equipo</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            Nuestro Equipo de Desarrollo
+          </h2>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {jugadores.map((jugador, index) => (
+            {desarrolladores.map((desarrollador, index) => (
               <Card key={index}>
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center space-y-4">
                     <Avatar className="h-24 w-24">
                       <AvatarImage
-                        src={jugador.imagen}
-                        alt={`Foto de ${jugador.nombre}`}
+                        src={desarrollador.imagen}
+                        alt={`Foto de ${desarrollador.nombre}`}
                       />
                       <AvatarFallback>
-                        {jugador.nombre.substring(0, 2)}
+                        {desarrollador.nombre.substring(0, 2)}
                       </AvatarFallback>
                     </Avatar>
                     <div className="space-y-1 text-center">
-                      <h3 className="font-bold text-lg">{jugador.nombre}</h3>
+                      <h3 className="font-bold text-lg">
+                        {desarrollador.nombre}
+                      </h3>
                       <p className="text-sm text-muted-foreground">
-                        {jugador.posicion}
+                        {desarrollador.rol}
                       </p>
-                      <div className="flex justify-center items-center space-x-1">
-                        <span className="text-sm font-medium">Dorsal:</span>
-                        <span className="text-sm">{jugador.dorsal}</span>
-                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -344,9 +340,9 @@ export default function InformacionPage() {
           </div>
 
           <div className="mt-8">
-            <h3 className="text-xl font-bold mb-4">Cuerpo Técnico</h3>
+            <h3 className="text-xl font-bold mb-4">Liderazgo Técnico</h3>
             <div className="grid gap-6 md:grid-cols-3">
-              {cuerpoTecnico.map((miembro, index) => (
+              {lideresTecnicos.map((miembro, index) => (
                 <Card key={index}>
                   <CardContent className="pt-6">
                     <div className="flex flex-col items-center space-y-4">
@@ -388,7 +384,7 @@ export default function InformacionPage() {
                   <div>
                     <p className="font-medium">Dirección</p>
                     <p className="text-sm text-muted-foreground">
-                      Av. del Estadio, s/n, 08028 Barcelona, España
+                      Calle Tecnología 123, 28001 Madrid, España
                     </p>
                   </div>
                 </div>
@@ -397,7 +393,7 @@ export default function InformacionPage() {
                   <div>
                     <p className="font-medium">Teléfono</p>
                     <p className="text-sm text-muted-foreground">
-                      +34 93 123 45 67
+                      +34 91 123 45 67
                     </p>
                   </div>
                 </div>
@@ -406,7 +402,7 @@ export default function InformacionPage() {
                   <div>
                     <p className="font-medium">Email</p>
                     <p className="text-sm text-muted-foreground">
-                      info@futbolclub.es
+                      info@soxaapp.com
                     </p>
                   </div>
                 </div>
@@ -415,7 +411,7 @@ export default function InformacionPage() {
                   <div>
                     <p className="font-medium">Web</p>
                     <p className="text-sm text-muted-foreground">
-                      www.futbolclub.es
+                      www.soxaapp.com
                     </p>
                   </div>
                 </div>
@@ -424,9 +420,9 @@ export default function InformacionPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Horarios</CardTitle>
+                <CardTitle>Soporte Técnico</CardTitle>
                 <CardDescription>
-                  Horarios de atención al público
+                  Horarios de atención al usuario
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -442,13 +438,13 @@ export default function InformacionPage() {
                   <div className="flex justify-between">
                     <p className="font-medium">Domingos y Festivos</p>
                     <p className="text-muted-foreground">
-                      Cerrado (excepto días de partido)
+                      Solo soporte por email
                     </p>
                   </div>
                   <div className="flex justify-between pt-2 border-t mt-2">
-                    <p className="font-medium">Días de Partido</p>
+                    <p className="font-medium">Tiempo de respuesta</p>
                     <p className="text-muted-foreground">
-                      Desde 2 horas antes del inicio
+                      Máximo 24 horas laborables
                     </p>
                   </div>
                 </div>
@@ -461,17 +457,16 @@ export default function InformacionPage() {
               <CardTitle>Ubicación</CardTitle>
             </CardHeader>
             <CardContent>
-              {/* Replace the div below with the iframe from your map provider */}
               <div className="aspect-video rounded-md overflow-hidden border">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0865999999997!2d2.122819815317804!3d41.37520797926525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498e5%3A0x0!2sEstadi%20Ol%C3%ADmpic%20Llu%C3%ADs%20Companys!5e0!3m2!1sen!2ses!4v1678886400000!5m2!1sen!2ses" // Replace this src with the one you copied from Google Maps
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0865999999997!2d2.122819815317804!3d41.37520797926525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498e5%3A0x0!2sEstadi%20Ol%C3%ADmpic%20Llu%C3%ADs%20Companys!5e0!3m2!1sen!2ses!4v1678886400000!5m2!1sen!2ses"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Ubicación del Estadio"
+                  title="Ubicación de Nuestras Oficinas"
                 ></iframe>
               </div>
             </CardContent>
